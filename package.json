@@ -1,19 +1,69 @@
 {
   "name": "ts-spring-framework",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000t\u0000s\u0000-\u0000s\u0000p\u0000r\u0000i\u0000n\u0000g\u0000-\u0000f\u0000r\u0000a\u0000m\u0000e\u0000w\u0000o\u0000r\u0000k\u0000\r\u0000 \u0000",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Java springframework but in typescript",
+  "main": "dist/index.js",
+  "module": "dist/template.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
   },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "author": "Jose Aburto",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PinoFlores/ts-spring-framework.git"
   },
-  "author": "Jose Aburto",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/PinoFlores/ts-spring-framework/issues"
   },
-  "homepage": "https://github.com/PinoFlores/ts-spring-framework#readme"
+  "homepage": "https://github.com/PinoFlores/ts-spring-framework#readme",
+  "keywords": [
+    "framework",
+    "microservices",
+    "typescript"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/template.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/template.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "peerDependencies": {},
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "husky": "^8.0.1",
+    "size-limit": "^7.0.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  }
 }
